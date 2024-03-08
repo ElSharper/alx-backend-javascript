@@ -1,11 +1,9 @@
+// Filename: 3-currency.js
+
 export default class Currency {
   constructor(code, name) {
-    this.code = code;
-    this.name = name;
-  }
-
-  displayFullCurrency() {
-    return `${this._name} (${this._code})`;
+    this._code = code;
+    this._name = name;
   }
 
   get code() {
@@ -13,9 +11,6 @@ export default class Currency {
   }
 
   set code(code) {
-    if ((typeof code !== 'string') && !(code instanceof String)) {
-      throw new TypeError('Code must be a string');
-    }
     this._code = code;
   }
 
@@ -24,9 +19,8 @@ export default class Currency {
   }
 
   set name(name) {
-    if ((typeof name !== 'string') && !(name instanceof String)) {
-      throw new TypeError('Name must be a string');
-    }
     this._name = name;
   }
+
+  displayFullCurrency = () => `${this._name} (${this._code})`;
 }
